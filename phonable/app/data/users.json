@@ -1,0 +1,70 @@
+[
+  {
+    "userId": "9pjmh0p1gjn6qmwn",
+    "username": "johndoe",
+    "type": "customer",
+    "name": "John",
+    "surname": "Doe",
+    "shippingAddress": "123 Main Street, Cityville",
+    "moneyBalance": 1000.0,
+    "password": "John123"
+  },
+  {
+    "userId": "8sudif9ssjm8ghz1",
+    "username": "janesmith",
+    "type": "customer",
+    "name": "Jane",
+    "surname": "Smith",
+    "shippingAddress": "456 Elm Street, Townsville",
+    "moneyBalance": 1500.5,
+    "password": "Jane123"
+  },
+  {
+    "userId": "Aadsdas78ass",
+    "username": "michaeljohnson",
+    "type": "customer",
+    "name": "Michael",
+    "surname": "Johnson",
+    "shippingAddress": "789 Oak Avenue, Villagetown",
+    "moneyBalance": 800.75,
+    "password": "Michael123"
+  },
+  {
+    "userId": "m2sheetx5ulm4gnk",
+    "username": "emilybrown",
+    "type": "customer",
+    "name": "Emily",
+    "surname": "Brown",
+    "shippingAddress": "101 Maple Drive, Hamletville",
+    "moneyBalance": 2000.0,
+    "password": "Emily123"
+  },
+  {
+    "userId": "tzmq0cy59pmrm844",
+    "username": "davidwilson",
+    "type": "customer",
+    "name": "David",
+    "surname": "Wilson",
+    "shippingAddress": "202 Pine Road, Suburbia",
+    "moneyBalance": 12000.25,
+    "password": "David123"
+  },
+  {
+    "userId": "m2sheetx5ulwefsd",
+    "username": "john_the_seller",
+    "companyName": "ABC Company",
+    "type": "seller",
+    "name": "Seller John",
+    "surname": "Doe",
+    "password": "SellerJohn123"
+  },
+  {
+    "userId": "x2shaetx5ulm4gnk",
+    "username": "abdullah",
+    "type": "seller",
+    "name": "Abdullah",
+    "surname": "Al-Mansour",
+    "companyName": "XYZ Company",
+    "password": "Abdullah123"
+  }
+]

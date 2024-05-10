@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator dbml {
+  provider = "prisma-dbml-generator"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  userId          String       @id @default(cuid())
+  username        String       @unique
+  type            String
+  name            String?
+  surname         String?
+  shippingAddress String?
+  moneyBalance    Float?
+  companyName     String?
+  password        String
+  Item            Item[]
+  CartItems       CartItem[]
+  BoughtItems     BoughtItem[]
+}
+
+model Item {
+  itemId         String       @id @default(cuid())
+  name           String
+  price          Float
+  quantity       Int
+  picture        String
+  details        String
+  category       String
+  sellerId       String
+  outOfStock     Boolean      @default(false)
+  Seller         User         @relation(fields: [sellerId], references: [userId], onDelete: Cascade, onUpdate: Cascade)
+  CartItems      CartItem[]
+  BoughtItems    BoughtItem[]
+  uploadedOnDate DateTime     @default(now())
+}
+
+model CartItem {
+  cartItemId  String   @id @default(cuid())
+  customerId  String
+  Customer    User     @relation(fields: [customerId], references: [userId], onDelete: Cascade, onUpdate: Cascade)
+  itemId      String
+  Item        Item     @relation(fields: [itemId], references: [itemId], onDelete: Cascade, onUpdate: Cascade)
+  quantity    Int
+  checked     Boolean
+  addedOnDate DateTime @default(now())
+}
+
+model BoughtItem {
+  boughtItemId String   @id @default(cuid())
+  customerId   String
+  Customer     User     @relation(fields: [customerId], references: [userId], onDelete: Cascade, onUpdate: Cascade)
+  itemId       String
+  Item         Item     @relation(fields: [itemId], references: [itemId], onDelete: Cascade, onUpdate: Cascade)
+  quantity     Int
+  boughtOnDate DateTime @default(now())
+}

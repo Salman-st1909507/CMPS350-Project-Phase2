@@ -1,0 +1,123 @@
+.main {
+  .shopping-cart-container {
+    width: 100%;
+
+    .shopping-cart-cards-checkout {
+      width: 100%;
+      .shopping-cards {
+        width: 100%;
+        gap: 15px;
+        background-color: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 1px 10px lightslategray;
+        .shopping-cart-card {
+          background-color: lightgrey;
+          box-shadow: 0 1px 10px lightslategray;
+          width: 100%;
+          height: 100%;
+          padding: 5px 10px;
+          border-radius: 10px;
+          align-items: center;
+          gap: 5px;
+
+          .shopping-cart-card-checkbox-image-info {
+            gap: 10px;
+            justify-content: start;
+            .shopping-cart-card-checkbox {
+              margin: 0 2% 0 0;
+              cursor: pointer;
+            }
+
+            .shopping-cart-card-image {
+              width: 100px;
+              border-radius: 4px;
+            }
+            .shopping-cart-card-info {
+              align-self: self-start;
+              gap: 5px;
+              .shopping-cart-card-name {
+                align-self: self-start;
+
+                text-wrap: wrap;
+                font-size: 0.8em;
+                font-weight: bold;
+              }
+              .shopping-cart-card-details {
+                text-wrap: wrap;
+                font-size: 0.8em;
+              }
+            }
+          }
+
+          .shopping-cart-buttons {
+            gap: 10px;
+            .shopping-cart-card-price {
+              font-size: 1.4em;
+              font-weight: bold;
+            }
+            .shopping-cart-card-quantity-control {
+              width: 100%;
+              gap: 10px;
+
+              .shopping-cart-card-quantity {
+                font-weight: bold;
+              }
+              .minus-button,
+              .plus-button {
+                width: 30px;
+                height: 30px;
+                font-weight: bolder;
+              }
+            }
+
+            .shopping-cart-card-delete-button {
+              width: 100%;
+              height: 30px;
+            }
+          }
+        }
+      }
+      .checkout {
+        width: 100%;
+        align-self: self-start;
+        gap: 10px;
+        background-color: rgb(243, 243, 243);
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 1px 10px lightslategray;
+        .checkout-text {
+          font-weight: bold;
+        }
+        .checkout-button {
+          width: 100%;
+          height: 30px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 754px) {
+  .main {
+    .shopping-cart-container {
+      .shopping-cart-cards-checkout {
+        flex-direction: row;
+        gap: 10px;
+        .shopping-cards {
+          width: 80%;
+          .shopping-cart-card {
+            .shopping-cart-buttons {
+              width: 20%;
+            }
+          }
+        }
+        .checkout {
+          width: 20%;
+          position: sticky;
+          top: 200px;
+        }
+      }
+    }
+  }
+}

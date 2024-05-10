@@ -1,0 +1,65 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table User {
+  userId String [pk]
+  username String [unique, not null]
+  type String [not null]
+  name String
+  surname String
+  shippingAddress String
+  moneyBalance Float
+  companyName String
+  password String [not null]
+  Item Item [not null]
+  CartItems CartItem [not null]
+  BoughtItems BoughtItem [not null]
+}
+
+Table Item {
+  itemId String [pk]
+  name String [not null]
+  price Float [not null]
+  quantity Int [not null]
+  picture String [not null]
+  details String [not null]
+  category String [not null]
+  sellerId String [not null]
+  outOfStock Boolean [not null, default: false]
+  Seller User [not null]
+  CartItems CartItem [not null]
+  BoughtItems BoughtItem [not null]
+  uploadedOnDate DateTime [default: `now()`, not null]
+}
+
+Table CartItem {
+  cartItemId String [pk]
+  customerId String [not null]
+  Customer User [not null]
+  itemId String [not null]
+  Item Item [not null]
+  quantity Int [not null]
+  checked Boolean [not null]
+  addedOnDate DateTime [default: `now()`, not null]
+}
+
+Table BoughtItem {
+  boughtItemId String [pk]
+  customerId String [not null]
+  Customer User [not null]
+  itemId String [not null]
+  Item Item [not null]
+  quantity Int [not null]
+  boughtOnDate DateTime [default: `now()`, not null]
+}
+
+Ref: Item.sellerId > User.userId [delete: Cascade]
+
+Ref: CartItem.customerId > User.userId [delete: Cascade]
+
+Ref: CartItem.itemId > Item.itemId [delete: Cascade]
+
+Ref: BoughtItem.customerId > User.userId [delete: Cascade]
+
+Ref: BoughtItem.itemId > Item.itemId [delete: Cascade]

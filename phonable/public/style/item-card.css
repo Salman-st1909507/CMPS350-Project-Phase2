@@ -1,0 +1,81 @@
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.item-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+  background-color: white;
+  box-shadow: 0 1px 10px lightslategray;
+  border-radius: 10px;
+  padding: 15px;
+  width: 100%;
+  .item-card {
+    animation: fade-in 0.5s ease forwards;
+    background-color: lightgray;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.1s;
+    box-shadow: 0 1px 10px lightslategray;
+    gap: 0;
+    width: 190px;
+    .item-image {
+      background-color: white;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      width: 100%;
+      height: 60%;
+    }
+
+    .item-info {
+      width: 100%;
+      align-items: start;
+      gap: 10px;
+      padding: 0 0 15px 15px;
+      .item-name {
+        font-weight: 600;
+      }
+      .item-price {
+        font-size: 1.5em;
+      }
+    }
+  }
+  .item-card:hover {
+    transform: translate(0, -2px) scale(1.02);
+    background-color: lightslategray;
+  }
+}
+
+#sellerBoughtItemsGrid table {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+#sellerBoughtItemsGrid th,
+#sellerBoughtItemsGrid td {
+  border: 2px solid #ccc;
+  padding: 12px;
+  text-align: center;
+}
+
+#sellerBoughtItemsGrid th {
+  background-color: #f2f2f2;
+}
+
+#sellerBoughtItemsGrid tr:hover {
+  background-color: #f2f2f2;
+}
+
+.xx {
+  text-align: center;
+}

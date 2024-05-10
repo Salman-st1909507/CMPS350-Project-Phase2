@@ -1,0 +1,86 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 3rem;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tableHead {
+  background-color: #333;
+  color: #fff;
+}
+
+.tableHead th {
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tableRow {
+  transition: background-color 0.3s ease;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+.tableRow:hover {
+  background-color: #e8e8e8;
+}
+
+.tableRow td {
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+.singleValueContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.singleValue {
+  width: 48%;
+  background-color: #fff;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.singleValue:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.singleValue h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}

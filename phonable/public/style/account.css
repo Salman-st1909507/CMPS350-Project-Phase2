@@ -1,0 +1,66 @@
+.main {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  .user-details-container {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 10px lightslategray;
+    padding: 15px 15px;
+
+    .user-details {
+      width: 100%;
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 1px 10px lightslategray;
+
+      p {
+        margin: 10px 0;
+        color: #6a6a6a;
+
+        strong {
+          color: #333;
+        }
+      }
+    }
+    .account-buttons {
+      width: 100%;
+
+      justify-content: end;
+      .update-account-details-button,
+      .sign-out-button {
+        padding: 10px;
+      }
+
+      .sign-out-button {
+        background-color: rgb(198, 79, 58);
+      }
+      .sign-out-button:hover {
+        background-color: rgb(193, 105, 89);
+      }
+    }
+    .item-grid {
+      background-color: transparent;
+      box-shadow: 0 0 0 lightslategray;
+      padding: 0 0;
+    }
+    .item-grid2 {
+      background-color: transparent;
+      box-shadow: 0 0 0 lightslategray;
+      padding: 0 0;
+    }
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#sellerBoughtItemsGrid {
+  margin-top: 2rem;
+}
