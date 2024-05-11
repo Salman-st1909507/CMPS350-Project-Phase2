@@ -2,29 +2,23 @@ import itemsRepo from "./items-repo.js";
 
 class CartItemsClientRepo {
   async getCartItems(customerId) {
-    const response = await fetch(
-      `http://localhost:3000/api/cart-items/${customerId}`
-    );
+    const response = await fetch(`/api/cart-items/${customerId}`);
     return response.json();
   }
 
   async getCartItem(cartItemId, customerId) {
-    const response = await fetch(
-      `http://localhost:3000/api/cart-items/${customerId}/${cartItemId}`
-    );
+    const response = await fetch(`/api/cart-items/${customerId}/${cartItemId}`);
     return response.json();
   }
 
   async getCartItemByItemId(itemId) {
-    const response = await fetch(
-      `http://localhost:3000/api/cart-items?itemId=${itemId}`
-    );
+    const response = await fetch(`/api/cart-items?itemId=${itemId}`);
     return response.json();
   }
 
   async updateCartItem(updatedCartItem) {
     const response = await fetch(
-      `http://localhost:3000/api/cart-items/${updatedCartItem.customerId}/${updatedCartItem.cartItemId}`,
+      `/api/cart-items/${updatedCartItem.customerId}/${updatedCartItem.cartItemId}`,
       {
         method: "PUT",
         headers: {
@@ -41,7 +35,7 @@ class CartItemsClientRepo {
     const existingCartItem = await this.getCartItemByItemId(newCartItem.itemId);
 
     if (!existingCartItem) {
-      const response = await fetch(`http://localhost:3000/api/cart-items`, {
+      const response = await fetch(`/api/cart-items`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,7 +52,7 @@ class CartItemsClientRepo {
 
   async deleteCartItem(cartItemId, customerId) {
     const response = await fetch(
-      `http://localhost:3000/api/cart-items/${customerId}/${cartItemId}`,
+      `/api/cart-items/${customerId}/${cartItemId}`,
       {
         method: "DELETE",
       }

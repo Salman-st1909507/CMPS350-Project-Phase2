@@ -1,32 +1,27 @@
 class ItemsClientRepo {
   async getItems(searchText) {
-    const response = await fetch(
-      `http://localhost:3000/api/items?searchText=${searchText}`
-    );
+    const response = await fetch(`/api/items?searchText=${searchText}`);
     return response.json();
   }
 
   async getItem(itemId) {
-    const response = await fetch(`http://localhost:3000/api/items/${itemId}`);
+    const response = await fetch(`/api/items/${itemId}`);
     return response.json();
   }
 
   async updateItem(updatedItem) {
-    const response = await fetch(
-      `http://localhost:3000/api/items/${updatedItem.itemId}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedItem),
-      }
-    );
+    const response = await fetch(`/api/items/${updatedItem.itemId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedItem),
+    });
     return response.json();
   }
 
   async addItem(item) {
-    const response = await fetch(`http://localhost:3000/api/items`, {
+    const response = await fetch(`/api/items`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,16 +32,14 @@ class ItemsClientRepo {
   }
 
   async deleteItem(itemId) {
-    const response = await fetch(`http://localhost:3000/api/items/${itemId}`, {
+    const response = await fetch(`/api/items/${itemId}`, {
       method: "DELETE",
     });
     return response.json();
   }
 
   async getUploadedItems(sellerId) {
-    const response = await fetch(
-      `http://localhost:3000/api/items?sellerId=${sellerId}`
-    );
+    const response = await fetch(`/api/items?sellerId=${sellerId}`);
     return response.json();
   }
 }

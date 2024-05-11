@@ -81,13 +81,9 @@ export default function RootLayout({ children }) {
               Home
             </button>
             <p className="buttons-divider">|</p>
-            <button className="text-button" onClick={navigateToHome}>
-              Phones
-            </button>
+            <button className="text-button">Phones</button>
             <p className="buttons-divider">|</p>
-            <button className="text-button" onClick={navigateToHome}>
-              Accessories
-            </button>
+            <button className="text-button">Accessories</button>
           </nav>
         </header>
 

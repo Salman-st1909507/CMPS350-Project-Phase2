@@ -1,22 +1,16 @@
 class BoughtItemsClientRepo {
   async getBoughtItemsForCustomer(customerId) {
-    const response = await fetch(
-      `http://localhost:3000/api/bought-items?customerId=${customerId}`
-    );
+    const response = await fetch(`/api/bought-items?customerId=${customerId}`);
     return response.json();
   }
 
   async getBoughtItemsForSeller(sellerId) {
-    const response = await fetch(
-      `http://localhost:3000/api/bought-items?sellerId=${sellerId}`
-    );
+    const response = await fetch(`/api/bought-items?sellerId=${sellerId}`);
     return response.json();
   }
 
   async getBoughtItemByItemId(itemId) {
-    const response = await fetch(
-      `http://localhost:3000/api/bought-items?itemId=${itemId}`
-    );
+    const response = await fetch(`/api/bought-items?itemId=${itemId}`);
     return response.json();
   }
 
@@ -30,7 +24,7 @@ class BoughtItemsClientRepo {
       !existingBoughtItem ||
       existingBoughtItem.customerId != newBoughtItem.customerId
     ) {
-      const response = await fetch(`http://localhost:3000/api/bought-items`, {
+      const response = await fetch(`/api/bought-items`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +44,7 @@ class BoughtItemsClientRepo {
 
   async updateBoughtItem(boughtItem) {
     const response = await fetch(
-      `http://localhost:3000/api/bought-items/${boughtItem.boughtItemId}`,
+      `/api/bought-items/${boughtItem.boughtItemId}`,
       {
         method: "PUT",
         headers: {

@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "@/app/statistics.module.css";
 import StatisticsRepo from "@/app/repo/statistics-repo";
+import itemsRepo from "../repo/items-repo";
 
 export default async function StatisticsPage() {
   const customersPerLocation = await StatisticsRepo.getCustomersPerLocation();
@@ -61,13 +62,19 @@ export default async function StatisticsPage() {
           <thead className={styles.tableHead}>
             <tr>
               <th>Product ID</th>
+              <th>Product Name</th>
               <th>Total Quantity</th>
             </tr>
           </thead>
           <tbody>
-            {mostPurchasedProductsThisMonth.map((data, index) => (
+            {mostPurchasedProductsThisMonth.map(async (data, index) => (
               <tr key={index} className={styles.tableRow}>
                 <td>{data.itemId}</td>
+                <td>
+                  {await itemsRepo
+                    .getItem(data.itemId)
+                    .then((item) => item.name)}
+                </td>
                 <td>{data._sum.quantity}</td>
               </tr>
             ))}
