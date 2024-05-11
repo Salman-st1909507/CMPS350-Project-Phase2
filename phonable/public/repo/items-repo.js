@@ -1,6 +1,8 @@
 class ItemsClientRepo {
   async getItems(searchText) {
-    const response = await fetch(`/api/items?searchText=${searchText}`);
+    const response = await fetch(
+      `https://cmps-350-project-phase2-bo3erou6a-salman-st1909507s-projects.vercel.app/api/items?searchText=${searchText}`
+    );
     return response.json();
   }
 
