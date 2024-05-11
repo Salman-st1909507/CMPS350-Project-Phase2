@@ -17,98 +17,99 @@ export default async function StatisticsPage() {
     await StatisticsRepo.getTotalUploadedItemsCount();
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Statistics Page</h1>
+    <main>
+      <h2 className={styles.title}>Statistics</h2>
+      <div className={styles.container}>
+        <div className={styles.singleValueContainer}>
+          <div className={styles.singleValue}>
+            <h2>
+              Total Bought Items Quantity:{" "}
+              {totalBoughtItemsQuantity._sum.quantity}
+            </h2>
+          </div>
+          <div className={styles.singleValue}>
+            <h2>Total Sellers Count: {sellersCount}</h2>
+          </div>
+          <div className={styles.singleValue}>
+            <h2>Total Customers Count: {customersCount}</h2>
+          </div>
+          <div className={styles.singleValue}>
+            <h2>Total Uploaded Items Count: {totalUploadedItemsCount}</h2>
+          </div>
+        </div>
 
-      <div className={styles.singleValueContainer}>
-        <div className={styles.singleValue}>
-          <h2>
-            Total Bought Items Quantity:{" "}
-            {totalBoughtItemsQuantity._sum.quantity}
-          </h2>
-        </div>
-        <div className={styles.singleValue}>
-          <h2>Total Sellers Count: {sellersCount}</h2>
-        </div>
-        <div className={styles.singleValue}>
-          <h2>Total Customers Count: {customersCount}</h2>
-        </div>
-        <div className={styles.singleValue}>
-          <h2>Total Uploaded Items Count: {totalUploadedItemsCount}</h2>
-        </div>
+        <h2>Customers per Location</h2>
+        <table className={styles.table}>
+          <thead className={styles.tableHead}>
+            <tr>
+              <th>Location</th>
+              <th>Number of Customers</th>
+            </tr>
+          </thead>
+          <tbody>
+            {customersPerLocation.map((data, index) => (
+              <tr key={index} className={styles.tableRow}>
+                <td>{data.shippingAddress}</td>
+                <td>{data._count}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <h2>Most Purchased Products this Month</h2>
+        <table className={styles.table}>
+          <thead className={styles.tableHead}>
+            <tr>
+              <th>Product ID</th>
+              <th>Total Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            {mostPurchasedProductsThisMonth.map((data, index) => (
+              <tr key={index} className={styles.tableRow}>
+                <td>{data.itemId}</td>
+                <td>{data._sum.quantity}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <h2>Out of Stock Items</h2>
+        <table className={styles.table}>
+          <thead className={styles.tableHead}>
+            <tr>
+              <th>Product ID</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {outOfStockItems.map((item, index) => (
+              <tr key={index} className={styles.tableRow}>
+                <td>{item.itemId}</td>
+                <td>{item.name}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <h2>Uploaded Items this Month</h2>
+        <table className={styles.table}>
+          <thead className={styles.tableHead}>
+            <tr>
+              <th>Product ID</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {uploadedItemsThisMonth.map((item, index) => (
+              <tr key={index} className={styles.tableRow}>
+                <td>{item.itemId}</td>
+                <td>{item.name}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-
-      <h2>Customers per Location</h2>
-      <table className={styles.table}>
-        <thead className={styles.tableHead}>
-          <tr>
-            <th>Location</th>
-            <th>Number of Customers</th>
-          </tr>
-        </thead>
-        <tbody>
-          {customersPerLocation.map((data, index) => (
-            <tr key={index} className={styles.tableRow}>
-              <td>{data.shippingAddress}</td>
-              <td>{data._count}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      <h2>Most Purchased Products this Month</h2>
-      <table className={styles.table}>
-        <thead className={styles.tableHead}>
-          <tr>
-            <th>Product ID</th>
-            <th>Total Quantity</th>
-          </tr>
-        </thead>
-        <tbody>
-          {mostPurchasedProductsThisMonth.map((data, index) => (
-            <tr key={index} className={styles.tableRow}>
-              <td>{data.itemId}</td>
-              <td>{data._sum.quantity}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      <h2>Out of Stock Items</h2>
-      <table className={styles.table}>
-        <thead className={styles.tableHead}>
-          <tr>
-            <th>Product ID</th>
-            <th>Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          {outOfStockItems.map((item, index) => (
-            <tr key={index} className={styles.tableRow}>
-              <td>{item.itemId}</td>
-              <td>{item.name}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      <h2>Uploaded Items this Month</h2>
-      <table className={styles.table}>
-        <thead className={styles.tableHead}>
-          <tr>
-            <th>Product ID</th>
-            <th>Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          {uploadedItemsThisMonth.map((item, index) => (
-            <tr key={index} className={styles.tableRow}>
-              <td>{item.itemId}</td>
-              <td>{item.name}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    </main>
   );
 }

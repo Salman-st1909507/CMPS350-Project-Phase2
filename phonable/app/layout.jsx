@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head></head>
-      <body className={`${inter.className} ${"body"}`}>
+      <body className={`${"body"}`}>
         <header className="header column">
           <div className="app-bar row">
             <p className="welcoming-text">Up to 50% discounts for new users!</p>
@@ -81,11 +81,11 @@ export default function RootLayout({ children }) {
               Home
             </button>
             <p className="buttons-divider">|</p>
-            <button className="text-button" onClick>
+            <button className="text-button" onClick={navigateToHome}>
               Phones
             </button>
             <p className="buttons-divider">|</p>
-            <button className="text-button" onClick>
+            <button className="text-button" onClick={navigateToHome}>
               Accessories
             </button>
           </nav>

@@ -10,17 +10,27 @@ document.addEventListener("DOMContentLoaded", async () => {
     await usersRepo.getCurrentUserId()
   );
 
-  if (currentUser.type == "admin") {
-    window.location.href = `/statistics`;
-  }
-
   const userDetails = document.querySelector(".user-details-container");
+
   if (currentUser.type == "customer") {
     userDetails.innerHTML = customerDetailsPage();
+
+    const signOutButton = document.querySelector(".sign-out-button");
+    signOutButton.addEventListener("click", async () => {
+      usersRepo.setCurrentUserId(null);
+      window.location.href = "login.html";
+    });
+
     loadItems();
-  } else {
+  } else if (currentUser.type == "seller") {
     userDetails.innerHTML = sellerDetailsPage();
     await loadSellerItems();
+
+    const signOutButton = document.querySelector(".sign-out-button");
+    signOutButton.addEventListener("click", async () => {
+      usersRepo.setCurrentUserId(null);
+      window.location.href = "login.html";
+    });
 
     uploadForm = document.querySelector("#uploadForm");
     itemGrid = document.querySelector("#itemGrid");
@@ -54,13 +64,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     displayItems(currentUser.userId);
+  } else {
+    window.location.replace(`/statistics`);
   }
-
-  const signOutButton = document.querySelector(".sign-out-button");
-  signOutButton.addEventListener("click", async () => {
-    usersRepo.setCurrentUserId(null);
-    window.location.href = "login.html";
-  });
 });
 
 async function loadItems() {
